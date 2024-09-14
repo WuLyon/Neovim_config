@@ -3,6 +3,17 @@
 -- :source %
 -- :split
 -- :vsplit
+-- :PackerSync
+-- :PackerClean
+-- :PackerStatus
+-- :TSUpdate <python> ...
+-- :TSInstallInfo
+-- :checkhealth nvim-treesitter
+-- :map <shortcut>
+
+
+-- colorscheme
+vim.cmd('colorscheme onedark')
 
 -- Line Numbers setting
 vim.opt.number = true
@@ -48,5 +59,42 @@ vim.api.nvim_set_keymap('n', '<A-l>', '<C-w>l', { noremap = true, silent = true 
 
 -- Performance Settings
 vim.opt.updatetime = 300
-vim.opt.timeoutlen = 500
+vim.opt.timeoutlen = 1000
 
+-- Packer setup
+vim.cmd [[packadd packer.nvim]]
+
+require('packer').startup(function(use)
+  -- Packer可以管理自身
+  use 'wbthomason/packer.nvim'
+
+  -- colcorscheme
+  use 'morhetz/gruvbox'
+  use 'joshdick/onedark.vim'
+  
+  -- 添加nvim-treesitter插件
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
+
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,  -- 启用语法高亮
+  },
+  indent = {
+    enable = true,
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+}
+
+  -- 其他插件...
+end)
