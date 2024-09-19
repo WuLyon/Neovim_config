@@ -11,7 +11,9 @@
 -- :checkhealth nvim-treesitter
 -- :map <shortcut>
 
-
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
 -- colorscheme
 vim.cmd('colorscheme onedark')
 
@@ -51,6 +53,11 @@ vim.opt.swapfile = false
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
+-- leader
+vim.g.mapleader = ' '
+vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>f', ':NvimTreeFindFile<CR>', {noremap = true, silent = true})
+
 -- Keymap Settings
 vim.api.nvim_set_keymap('n', '<A-h>', '<C-w>h', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<A-j>', '<C-w>j', { noremap = true, silent = true })
@@ -66,6 +73,7 @@ vim.cmd [[packadd packer.nvim]]
 
 local noice_setup = require('noice_setup')
 local treesitter_setup = require('treesitter_setup')
+
 require('packer').startup(function(use)
   -- Packer可以管理自身
   use 'wbthomason/packer.nvim'
@@ -73,13 +81,20 @@ require('packer').startup(function(use)
   -- colcorscheme
   use 'morhetz/gruvbox'
   use 'joshdick/onedark.vim'
+  use 'nvim-tree/nvim-web-devicons'
   
+  use {
+    'nvim-tree/nvim-tree.lua',
+  }
+  require('nvim-tree').setup()
   -- 添加nvim-treesitter插件
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = treesitter_setup.setup
   }
+  
+  -- 添加noice.nvim插件
   use {
     "folke/noice.nvim",
     requires = {

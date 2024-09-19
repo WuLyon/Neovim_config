@@ -8,18 +8,22 @@ function M.setup()
       view = "cmdline_popup",
       format = {
         cmdline = { pattern = "^:", icon = ":", lang = "vim" }
-      }
+      },
+    },
+    messages = {
+      enable = true,
+      view = 'mini',
+    },
+    popupmenu = {
+      enabled = true,
     },
     views = {
       cmdline_popup = {
         position = {
-          row = 5,
+          row = "5",
           col = "50%",
         },
       },
-    },
-    popupmenu = {
-      enabled = true,
     },
   })
 
