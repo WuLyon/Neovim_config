@@ -1,7 +1,7 @@
 require('toggleterm').setup{
   direction = 'horizontal', 
   -- horizontal vertical tab float
-  open_mapping = [[tt]],
+  open_mapping = [[<C-t>]],
   start_in_insert = true,
   shade_terminals = true,
 }

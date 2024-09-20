@@ -72,5 +72,15 @@ return require('packer').startup(function(use)
     end
   }
 
+  use 'mfussenegger/nvim-dap'
+  use 'nvim-telescope/telescope-dap.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use 'mfussenegger/nvim-dap-python'
+  use {
+    'neovim/nvim-lspconfig',
+    config = function()
+      require('plugin-config.lspconfig')
+    end
+  }
   -- 其他插件...
 end)

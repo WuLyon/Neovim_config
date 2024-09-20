@@ -11,7 +11,10 @@
 -- :checkhealth nvim-treesitter
 -- :map <shortcut>
 
+vim.g.mapleader = ' '
 require('plugins')
+require('dap-config')
+
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -56,7 +59,6 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- leader
-vim.g.mapleader = ' '
 vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>f', ':NvimTreeFindFile<CR>', {noremap = true, silent = true})
 
