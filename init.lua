@@ -11,6 +11,8 @@
 -- :checkhealth nvim-treesitter
 -- :map <shortcut>
 
+require('plugins')
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
@@ -68,41 +70,3 @@ vim.api.nvim_set_keymap('n', '<A-l>', '<C-w>l', { noremap = true, silent = true 
 vim.opt.updatetime = 300
 vim.opt.timeoutlen = 1000
 
--- Packer setup
-vim.cmd [[packadd packer.nvim]]
-
-local noice_setup = require('noice_setup')
-local treesitter_setup = require('treesitter_setup')
-
-require('packer').startup(function(use)
-  -- Packer可以管理自身
-  use 'wbthomason/packer.nvim'
-
-  -- colcorscheme
-  use 'morhetz/gruvbox'
-  use 'joshdick/onedark.vim'
-  use 'nvim-tree/nvim-web-devicons'
-  
-  use {
-    'nvim-tree/nvim-tree.lua',
-  }
-  require('nvim-tree').setup()
-  -- 添加nvim-treesitter插件
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    config = treesitter_setup.setup
-  }
-  
-  -- 添加noice.nvim插件
-  use {
-    "folke/noice.nvim",
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-    config = noice_setup.setup
-  }
-
-  -- 其他插件...
-end)
