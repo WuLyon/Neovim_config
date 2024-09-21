@@ -55,10 +55,10 @@ dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
+ 
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
+
 end
 
 -- 可以设置断点、继续、单步调试的快捷键
@@ -78,3 +78,6 @@ vim.api.nvim_set_keymap('n', '<Leader>B', '<Cmd>lua require\'dap\'.set_breakpoin
 
 -- dap-ui 快捷键 (可选)
 vim.api.nvim_set_keymap('n', '<Leader>du', '<Cmd>lua require("dapui").toggle()<CR>', { noremap = true, silent = true }) -- 打开/关闭调试界面
+
+
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
