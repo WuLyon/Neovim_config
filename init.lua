@@ -61,6 +61,8 @@ vim.opt.splitbelow = true
 -- leader
 vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>f', ':NvimTreeFindFile<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>i', ':vsplit<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>o', ':split<CR>', {noremap = true, silent = true})
 
 -- Keymap Settings
 vim.api.nvim_set_keymap('n', '<A-h>', '<C-w>h', { noremap = true, silent = true })

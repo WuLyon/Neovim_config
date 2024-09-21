@@ -82,5 +82,12 @@ return require('packer').startup(function(use)
       require('plugin-config.lspconfig')
     end
   }
+
+  use {
+    'rcarriga/nvim-dap-ui',
+    requires = {
+      'nvim-neotest/nvim-nio',
+    }
+  }
   -- 其他插件...
 end)

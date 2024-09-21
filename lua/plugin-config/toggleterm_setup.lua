@@ -1,9 +1,11 @@
 require('toggleterm').setup{
   direction = 'horizontal', 
   -- horizontal vertical tab float
+  size = 15,
   open_mapping = [[<C-t>]],
   start_in_insert = true,
   shade_terminals = true,
+  shading_factor = 100,
 }
 
 function _G.set_terminal_keymaps()
